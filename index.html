@@ -53,7 +53,7 @@ body{
   pointer-events:auto;
 }
 
-/* MEDIA FIX */
+/* MEDIA */
 img,video{
   width:90%;
   max-width:340px;
@@ -85,7 +85,7 @@ img,video{
   font-size:20px;
 }
 
-/* NAV BUTTON */
+/* NAV */
 .nav{
   position:absolute;
   bottom:10px;
@@ -153,6 +153,11 @@ img,video{
 
 <body>
 
+<!-- 🎵 MUSIC (WAJIB ADA) -->
+<audio id="bgMusic" loop>
+  <source src="musik.mp3" type="audio/mp3">
+</audio>
+
 <div class="card">
 
 <!-- PIN -->
@@ -174,100 +179,76 @@ img,video{
 <button onclick="press(8)">8</button>
 <button onclick="press(9)">9</button><br>
 <button onclick="del()">⌫</button>
-<button onclick="press(0)">0</button>
+button onclick="press(0)">0</button>
 <button onclick="check()">✔</button>
 </div>
 </div>
 
 <!-- S2 -->
 <div class="slide" id="s2">
-<h1>Happy Anniversary sayaanggf na maungg
-  wopyyuuuu woppyyuuuuu my sweetheart💙</h1>
-<p>udaahh 1 Tahun sama kamu nichhh
-kamuuuu udahhh camaaa aku terusss tawuuuu, aku kasian sama orang lain soal 
-  nya pasti iri cama akuuu
-soal nya kamu nya udah aku rebut buat aku sendiriiiii hehehehehee</p>
+<h1>Happy Anniversary 💙</h1>
+<p>1 Tahun Bersama Kamu</p>
 
 <div class="nav">
-  <button class="btn" onclick="prev()">⬅ Back</button>
-  <button class="btn" onclick="next()">Next ➡</button>
+<button class="btn" onclick="prev()">⬅ Back</button>
+<button class="btn" onclick="next()">Next ➡</button>
 </div>
 </div>
 
-<!-- S3 FOTO -->
+<!-- FOTO -->
 <div class="slide" id="s3">
-<img src="foto1.jpg.jpeg">
-<p>Date Pizza yang Seruuu banget, aslii walauu aga plenger...
-  tapi not bad lah ya
-  buat first experience magang nya di pizza hat nantiiiii 🥰</p>
+<img src="foto1.jpg">
+<p>Date Pizza yang Seruuu banget 🥰</p>
 
 <div class="nav">
-  <button class="btn" onclick="prev()">⬅ Back</button>
-  <button class="btn" onclick="next()">Next ➡</button>
+<button class="btn" onclick="prev()">⬅ Back</button>
+<button class="btn" onclick="next()">Next ➡</button>
 </div>
 </div>
 
-<!-- S4 FOTO -->
 <div class="slide" id="s4">
-<img src="foto2.jpg.jpeg">
-<p>waktu ngebantuin kamu yang waktu itu kesusahan abis mapel pkwu hahahaha
-  kamu nya kebingungan cara buat masukin grill punya kamu
-  ke kotak nya 💙</p>
+<img src="foto2.jpg">
+<p>waktu ngebantuin kamu 💙</p>
 
 <div class="nav">
-  <button class="btn" onclick="prev()">⬅ Back</button>
-  <button class="btn" onclick="next()">Next ➡</button>
+<button class="btn" onclick="prev()">⬅ Back</button>
+<button class="btn" onclick="next()">Next ➡</button>
 </div>
 </div>
 
-<!-- S5 FOTO -->
 <div class="slide" id="s5">
-<img src="foto3.jpg.jpeg">
-<p>lagiii jadi Koboy 🤠 dikit lagi nangkep maling tuh...
-  eh malah fokus pacaran dong
-  koboy nya</p>
+<img src="foto3.jpg">
+<p>lagiii jadi Koboy 🤠</p>
 
 <div class="nav">
-  <button class="btn" onclick="prev()">⬅ Back</button>
-  <button class="btn" onclick="next()">Next ➡</button>
+<button class="btn" onclick="prev()">⬅ Back</button>
+<button class="btn" onclick="next()">Next ➡</button>
 </div>
 </div>
 
-<!-- S6 VIDEO -->
+<!-- VIDEO -->
 <div class="slide" id="s6">
-<video controls muted src="video1.mp4.mp4"></video>
+<video controls muted src="video1.mp4"></video>
 <p>manusia tercantik</p>
 
 <div class="nav">
-  <button class="btn" onclick="prev()">⬅ Back</button>
-  <button class="btn" onclick="next()">Next ➡</button>
+<button class="btn" onclick="prev()">⬅ Back</button>
+<button class="btn" onclick="next()">Next ➡</button>
 </div>
 </div>
 
-<!-- S7 VIDEO -->
 <div class="slide" id="s7">
-<video controls muted src="video2.mp4.mp4"></video>
+<video controls muted src="video2.mp4"></video>
 <p>I love the moment when i'm with you 💙</p>
 
 <div class="nav">
-  <button class="btn" onclick="prev()">⬅ Back</button>
-  <button class="btn" onclick="next()">Next ➡</button>
-</div>
-</div>
-
-<!-- S8 -->
-<div class="slide" id="s8">
-<h1>Harapan Kita 💙</h1>
-<p>Semoga selalu bersama</p>
-
-<div class="nav">
-  <button class="btn" onclick="prev()">⬅ Back</button>
-  <button class="btn" onclick="next()">Next ➡</button>
+<button class="btn" onclick="prev()">⬅ Back</button>
+<button class="btn" onclick="next()">Next ➡</button>
 </div>
 </div>
 
 <!-- SURAT -->
-<div class="slide" id="s9">
+<div class="slide" id="s8">
 <h1>Buka Surat 💌</h1>
 
 <div class="envelope" onclick="openLetter(this)">
@@ -278,7 +259,7 @@ soal nya kamu nya udah aku rebut buat aku sendiriiiii hehehehehee</p>
 </div>
 
 <div class="nav">
-  <button class="btn" onclick="prev()">⬅ Back</button>
+<button class="btn" onclick="prev()">⬅ Back</button>
 </div>
 </div>
 
@@ -294,7 +275,7 @@ function show(n){
   current=n;
 }
 
-function next(){ if(current<9) show(current+1); }
+function next(){ if(current<8) show(current+1); }
 function prev(){ if(current>1) show(current-1); }
 
 /* PIN */
@@ -315,17 +296,21 @@ function del(){
 }
 function check(){
   let val=[...document.querySelectorAll('.pin-box input')].map(x=>x.value).join('');
+  
   if(val==="2306"){
     show(2);
+
+    // 🎵 MUSIC START
+    let music=document.getElementById("bgMusic");
+    music.volume=0.5;
+    music.play().catch(()=>{});
+    
   }else{
     alert("PIN salah!");
   }
 }
-/* MUSIC */
-let music=new Audio("musik.mp3");
-music.loop=true;
 
-/* SURAT + TYPING */
+/* SURAT */
 let opened=false;
 
 const fullText = `Sayaanggf, happyyy anniversary yaaa yang pertama ✨💗, aku senang banget bisa ngelewatin semua nya bareng kamu selama 1 tahun ini, naik turun nya sebuah hubungan itu bener bener aku rasain banget dan bikin aku belajar banyak hal 🤩🤗, terimakasih banyak ya sayang karena udah selalu disamping aku 💙. Aku sayang dan cinta kamu ❤️. Salam hangat dari your BF.
