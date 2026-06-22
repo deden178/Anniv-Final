@@ -8,6 +8,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
+.slide p{
+  font-size:16px;
+  margin-top:8px;
+  margin-bottom:20px;
+  line-height:1.4;
+}
 body{
   margin:0;
   height:100vh;
@@ -48,11 +54,11 @@ canvas{
   pointer-events:none;
   display:flex;
   flex-direction:column;
-  justify-content:center;
+  justify-content:flex-start;
   align-items:center;
   text-align:center;
   padding:20px;
-  transition:0.5s ease;
+  overflow-y:auto;
 }
 
 .slide.active{
@@ -99,10 +105,12 @@ h1{font-size:26px;}
   padding:0 10px;
 }
 
-img,video{
-  width:85%;
+img, video{
+  width:65%;
+  max-height:180px;
+  object-fit:cover;
   border-radius:15px;
-  margin:10px;
+  margin:10px 0;
 }
 
 /* SURAT */
