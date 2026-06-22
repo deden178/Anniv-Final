@@ -31,7 +31,7 @@ body{
   overflow:hidden;
 }
 
-/* SLIDES */
+/* SLIDE */
 .slide{
   position:absolute;
   width:100%;
@@ -53,7 +53,7 @@ body{
   pointer-events:auto;
 }
 
-/* MEDIA FIX (FOTO & VIDEO) */
+/* MEDIA FIX */
 img,video{
   width:90%;
   max-width:340px;
@@ -83,6 +83,25 @@ img,video{
   background:#2563eb;
   color:white;
   font-size:20px;
+}
+
+/* NAV BUTTON */
+.nav{
+  position:absolute;
+  bottom:10px;
+  width:100%;
+  display:flex;
+  justify-content:space-between;
+  padding:0 15px;
+}
+
+.btn{
+  padding:10px 15px;
+  border:none;
+  border-radius:20px;
+  background:#3b82f6;
+  color:white;
+  font-size:14px;
 }
 
 /* SURAT */
@@ -160,46 +179,81 @@ img,video{
 </div>
 </div>
 
-<!-- HOME -->
+<!-- S2 -->
 <div class="slide" id="s2">
 <h1>Happy Anniversary 💙</h1>
 <p>1 Tahun Bersama Kamu</p>
+
+<div class="nav">
+  <button class="btn" onclick="prev()">⬅ Back</button>
+  <button class="btn" onclick="next()">Next ➡</button>
+</div>
 </div>
 
-<!-- FOTO 1 -->
+<!-- S3 FOTO -->
 <div class="slide" id="s3">
 <img src="foto1.jpg">
 <p>Date Pizza yang Seruuu banget 🥰</p>
+
+<div class="nav">
+  <button class="btn" onclick="prev()">⬅ Back</button>
+  <button class="btn" onclick="next()">Next ➡</button>
+</div>
 </div>
 
-<!-- FOTO 2 -->
+<!-- S4 FOTO -->
 <div class="slide" id="s4">
 <img src="foto2.jpg">
-<p>waktu ngebantuin kamu dan aku ngerasa ini yang paling ngebuat aku deket sama kamuu 💙</p>
+<p>waktu ngebantuin kamu 💙</p>
+
+<div class="nav">
+  <button class="btn" onclick="prev()">⬅ Back</button>
+  <button class="btn" onclick="next()">Next ➡</button>
+</div>
 </div>
 
-<!-- FOTO 3 -->
+<!-- S5 FOTO -->
 <div class="slide" id="s5">
 <img src="foto3.jpg">
 <p>lagiii jadi Koboy 🤠</p>
+
+<div class="nav">
+  <button class="btn" onclick="prev()">⬅ Back</button>
+  <button class="btn" onclick="next()">Next ➡</button>
+</div>
 </div>
 
-<!-- VIDEO 1 -->
+<!-- S6 VIDEO -->
 <div class="slide" id="s6">
 <video controls muted src="video1.mp4"></video>
 <p>manusia tercantik</p>
+
+<div class="nav">
+  <button class="btn" onclick="prev()">⬅ Back</button>
+  <button class="btn" onclick="next()">Next ➡</button>
+</div>
 </div>
 
-<!-- VIDEO 2 -->
+<!-- S7 VIDEO -->
 <div class="slide" id="s7">
 <video controls muted src="video2.mp4"></video>
 <p>I love the moment when i'm with you 💙</p>
+
+<div class="nav">
+  <button class="btn" onclick="prev()">⬅ Back</button>
+  <button class="btn" onclick="next()">Next ➡</button>
+</div>
 </div>
 
-<!-- HARAPAN -->
+<!-- S8 -->
 <div class="slide" id="s8">
 <h1>Harapan Kita 💙</h1>
 <p>Semoga selalu bersama</p>
+
+<div class="nav">
+  <button class="btn" onclick="prev()">⬅ Back</button>
+  <button class="btn" onclick="next()">Next ➡</button>
+</div>
 </div>
 
 <!-- SURAT -->
@@ -208,55 +262,58 @@ img,video{
 
 <div class="envelope" onclick="openLetter(this)">
   <div class="flap"></div>
-  <div class="paper" id="paper">
+  <div class="paper">
     <p id="text"></p>
   </div>
 </div>
 
+<div class="nav">
+  <button class="btn" onclick="prev()">⬅ Back</button>
+</div>
 </div>
 
 </div>
 
 <script>
 
-let current = 1;
+let current=1;
 
 function show(n){
   document.querySelectorAll('.slide').forEach(s=>s.classList.remove('active'));
   document.getElementById('s'+n).classList.add('active');
-  current = n;
+  current=n;
 }
 
-function next(){if(current<9) show(current+1);}
-function prev(){if(current>1) show(current-1);}
+function next(){ if(current<9) show(current+1); }
+function prev(){ if(current>1) show(current-1); }
 
 /* PIN */
-let i = 0;
+let i=0;
 function press(n){
-  let inputs = document.querySelectorAll('.pin-box input');
-  if(i < inputs.length){
-    inputs[i].value = n;
+  let inputs=document.querySelectorAll('.pin-box input');
+  if(i<inputs.length){
+    inputs[i].value=n;
     i++;
   }
 }
 function del(){
-  let inputs = document.querySelectorAll('.pin-box input');
-  if(i > 0){
+  let inputs=document.querySelectorAll('.pin-box input');
+  if(i>0){
     i--;
-    inputs[i].value = "";
+    inputs[i].value="";
   }
 }
 function check(){
-  let val = [...document.querySelectorAll('.pin-box input')].map(x=>x.value).join('');
-  if(val === "2306"){
+  let val=[...document.querySelectorAll('.pin-box input')].map(x=>x.value).join('');
+  if(val==="2306"){
     show(2);
   }else{
     alert("PIN salah!");
   }
 }
 
-/* SURAT + TYPING EFFECT */
-let opened = false;
+/* SURAT + TYPING */
+let opened=false;
 
 const fullText = `Sayaanggf, happyyy anniversary yaaa yang pertama ✨💗, aku senang banget bisa ngelewatin semua nya bareng kamu selama 1 tahun ini, naik turun nya sebuah hubungan itu bener bener aku rasain banget dan bikin aku belajar banyak hal 🤩🤗, terimakasih banyak ya sayang karena udah selalu disamping aku 💙. Aku sayang dan cinta kamu ❤️. Salam hangat dari your BF.
 
@@ -264,20 +321,20 @@ Buat "sesuatu" nya ditunggu ya 🤭`;
 
 function openLetter(el){
   if(opened) return;
-  opened = true;
+  opened=true;
 
   el.classList.add("open");
 
-  let target = document.getElementById("text");
-  target.innerHTML = "";
+  let target=document.getElementById("text");
+  target.innerHTML="";
 
-  let i = 0;
+  let i=0;
 
   function type(){
-    if(i < fullText.length){
-      target.innerHTML += fullText.charAt(i);
+    if(i<fullText.length){
+      target.innerHTML+=fullText.charAt(i);
       i++;
-      setTimeout(type, 20);
+      setTimeout(type,20);
     }
   }
 
