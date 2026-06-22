@@ -3,17 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Anniversary 1 Tahun 💙</title>
+<title>Anniversary 💙</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
-.slide p{
-  font-size:16px;
-  margin-top:8px;
-  margin-bottom:20px;
-  line-height:1.4;
-}
 body{
   margin:0;
   height:100vh;
@@ -26,26 +20,18 @@ body{
   color:white;
 }
 
-canvas{
-  position:fixed;
-  top:0;left:0;
-  width:100%;height:100%;
-  z-index:0;
-}
-
 .card{
-  position:relative;
-  z-index:2;
   width:90%;
   max-width:450px;
   height:600px;
   background:rgba(255,255,255,0.08);
   backdrop-filter:blur(12px);
   border-radius:20px;
+  position:relative;
   overflow:hidden;
-  box-shadow:0 10px 30px rgba(0,0,0,0.5);
 }
 
+/* SLIDES */
 .slide{
   position:absolute;
   width:100%;
@@ -59,6 +45,7 @@ canvas{
   text-align:center;
   padding:20px;
   overflow-y:auto;
+  transition:0.4s;
 }
 
 .slide.active{
@@ -66,8 +53,17 @@ canvas{
   pointer-events:auto;
 }
 
-h1{font-size:26px;}
+/* MEDIA FIX (FOTO & VIDEO) */
+img,video{
+  width:90%;
+  max-width:340px;
+  max-height:55vh;
+  object-fit:contain;
+  border-radius:15px;
+  margin:10px 0;
+}
 
+/* PIN */
 .pin-box input{
   width:50px;
   height:60px;
@@ -75,6 +71,7 @@ h1{font-size:26px;}
   text-align:center;
   border-radius:10px;
   border:2px solid #60a5fa;
+  margin:5px;
 }
 
 .keyboard button{
@@ -88,46 +85,17 @@ h1{font-size:26px;}
   font-size:20px;
 }
 
-.btn{
-  padding:10px 20px;
-  border:none;
-  border-radius:20px;
-  background:#3b82f6;
-  color:white;
-}
-
-.nav{
-  position:absolute;
-  bottom:10px;
-  width:100%;
-  display:flex;
-  justify-content:space-between;
-  padding:0 10px;
-}
-
-img, video{
-  width:90%;
-  max-width:340px;
-  max-height:55vh;
-  object-fit:contain;
-  border-radius:15px;
-  margin:10px 0;
-  box-shadow:0 5px 20px rgba(0,0,0,0.3);
-}
-
 /* SURAT */
 .envelope{
-  width:320px;
-  height:200px;
+  width:300px;
+  height:180px;
   background:#1e3a8a;
   border-radius:12px;
   position:relative;
-  cursor:pointer;
   overflow:hidden;
-  box-shadow:0 10px 25px rgba(0,0,0,0.4);
+  cursor:pointer;
 }
 
-/* flap tetap */
 .flap{
   position:absolute;
   top:0;
@@ -140,39 +108,35 @@ img, video{
 
 .paper{
   position:absolute;
-  bottom:0;
-  width:90%;
+  bottom:-100%;
   left:5%;
-  height:0;
+  width:90%;
+  height:85%;
   background:white;
   color:black;
   padding:15px;
-  overflow-y:auto;
   border-radius:10px;
   font-size:15px;
-  line-height:1.4;
-  transition:0.6s;
-  box-shadow:0 5px 15px rgba(0,0,0,0.2);
+  overflow-y:auto;
+  transition:0.8s ease;
+  white-space:pre-wrap;
 }
 
-/* saat terbuka */
 .envelope.open .flap{
   transform:rotateX(180deg);
 }
 
 .envelope.open .paper{
-  height:420px;
+  bottom:5%;
 }
 </style>
 </head>
 
 <body>
 
-<canvas id="canvas"></canvas>
-
 <div class="card">
 
-<!-- SLIDE 1 -->
+<!-- PIN -->
 <div class="slide active" id="s1">
 <h1>Masukkan PIN 💙</h1>
 
@@ -196,198 +160,129 @@ img, video{
 </div>
 </div>
 
-<!-- SLIDE 2 -->
+<!-- HOME -->
 <div class="slide" id="s2">
 <h1>Happy Anniversary 💙</h1>
-<p>365 hari sama kamu</p>
+<p>1 Tahun Bersama Kamu</p>
 </div>
 
-<!-- SLIDE 3 -->
+<!-- FOTO 1 -->
 <div class="slide" id="s3">
-<img src="foto1.jpg.jpeg">
+<img src="foto1.jpg">
 <p>Date Pizza yang Seruuu banget 🥰</p>
 </div>
 
-<!-- SLIDE 4 -->
+<!-- FOTO 2 -->
 <div class="slide" id="s4">
-<img src="foto2.jpg.jpeg">
+<img src="foto2.jpg">
 <p>waktu ngebantuin kamu dan aku ngerasa ini yang paling ngebuat aku deket sama kamuu 💙</p>
 </div>
 
-<!-- SLIDE 5 -->
+<!-- FOTO 3 -->
 <div class="slide" id="s5">
-<img src="foto3.jpg.jpeg">
+<img src="foto3.jpg">
 <p>lagiii jadi Koboy 🤠</p>
 </div>
 
-<!-- SLIDE 6 -->
+<!-- VIDEO 1 -->
 <div class="slide" id="s6">
-<h1>Video 1 💙</h1>
-<video controls muted src="video1.mp4.mp4"></video>
+<video controls muted src="video1.mp4"></video>
 <p>manusia tercantik</p>
 </div>
 
-<!-- SLIDE 7 -->
+<!-- VIDEO 2 -->
 <div class="slide" id="s7">
-<h1>Video 2 💙</h1>
-<video controls muted src="video2.mp4.mp4"></video>
-<p>I love the moment when i'm with youu 💙</p>
+<video controls muted src="video2.mp4"></video>
+<p>I love the moment when i'm with you 💙</p>
 </div>
 
-<!-- SLIDE 8 -->
+<!-- HARAPAN -->
 <div class="slide" id="s8">
 <h1>Harapan Kita 💙</h1>
-<p>Semoga kitaa selalu bersama Yaaa💙</p>
+<p>Semoga selalu bersama</p>
 </div>
 
-<!-- SLIDE 9 -->
+<!-- SURAT -->
 <div class="slide" id="s9">
-<h1>Terima Kasih 💙</h1>
-<p>Terima kasih sudah jadi bagian terbaik dalam hidupku</p>
-</div>
-
-<!-- SLIDE 10 -->
-<div class="slide" id="s10">
 <h1>Buka Surat 💌</h1>
 
 <div class="envelope" onclick="openLetter(this)">
   <div class="flap"></div>
-  <div class="paper" onclick="startTyping(event)">
-    <p id="letterText"></p>
+  <div class="paper" id="paper">
+    <p id="text"></p>
   </div>
 </div>
 
-</div>
-
-<!-- NAV -->
-<div class="nav">
-<button class="btn" onclick="prev()">⬅</button>
-<button class="btn" onclick="next()">➡</button>
 </div>
 
 </div>
 
 <script>
 
-let current=1;
+let current = 1;
 
 function show(n){
   document.querySelectorAll('.slide').forEach(s=>s.classList.remove('active'));
   document.getElementById('s'+n).classList.add('active');
-  current=n;
+  current = n;
 }
 
-function next(){if(current<10) show(current+1);}
+function next(){if(current<9) show(current+1);}
 function prev(){if(current>1) show(current-1);}
 
 /* PIN */
-let i=0;
+let i = 0;
 function press(n){
-  let inputs=document.querySelectorAll('.pin-box input');
-  if(i<inputs.length){
-    inputs[i].value=n;
+  let inputs = document.querySelectorAll('.pin-box input');
+  if(i < inputs.length){
+    inputs[i].value = n;
     i++;
   }
 }
 function del(){
-  let inputs=document.querySelectorAll('.pin-box input');
-  if(i>0){
+  let inputs = document.querySelectorAll('.pin-box input');
+  if(i > 0){
     i--;
-    inputs[i].value="";
+    inputs[i].value = "";
   }
 }
 function check(){
-  let val=[...document.querySelectorAll('.pin-box input')].map(x=>x.value).join('');
-  if(val==="2306"){
+  let val = [...document.querySelectorAll('.pin-box input')].map(x=>x.value).join('');
+  if(val === "2306"){
     show(2);
-    music.play();
   }else{
     alert("PIN salah!");
   }
 }
 
-/* MUSIC */
-let music=new Audio("musik.mp3");
-music.loop=true;
+/* SURAT + TYPING EFFECT */
+let opened = false;
 
-/* SURAT */
-function openLetter(el){
-  el.classList.toggle("open");
-}
-
-/* TYPING EFFECT */
-let fullText=`Sayaanggf, happyyy anniversary yaaa yang pertama ✨💗,
-
-aku senang banget bisa ngelewatin semua nya bareng kamu selama 1 tahun ini, naik turun nya sebuah hubungan itu bener bener aku rasain banget dan bikin aku belajar banyak hal 🤩🤗,
-
-terimakasih banyak ya sayang karena udah selalu disamping aku 💙.
-
-Aku sayang dan cinta kamu ❤️.
-
-Salam hangat dari your BF.
+const fullText = `Sayaanggf, happyyy anniversary yaaa yang pertama ✨💗, aku senang banget bisa ngelewatin semua nya bareng kamu selama 1 tahun ini, naik turun nya sebuah hubungan itu bener bener aku rasain banget dan bikin aku belajar banyak hal 🤩🤗, terimakasih banyak ya sayang karena udah selalu disamping aku 💙. Aku sayang dan cinta kamu ❤️. Salam hangat dari your BF.
 
 Buat "sesuatu" nya ditunggu ya 🤭`;
 
-let index=0;
-let started=false;
+function openLetter(el){
+  if(opened) return;
+  opened = true;
 
-function startTyping(e){
-  e.stopPropagation();
-  if(started) return;
-  started=true;
+  el.classList.add("open");
 
-  let el=document.getElementById("letterText");
-  el.innerHTML="";
+  let target = document.getElementById("text");
+  target.innerHTML = "";
+
+  let i = 0;
 
   function type(){
-    if(index<fullText.length){
-      el.innerHTML+=fullText.charAt(index);
-      index++;
-      setTimeout(type,25);
+    if(i < fullText.length){
+      target.innerHTML += fullText.charAt(i);
+      i++;
+      setTimeout(type, 20);
     }
   }
+
   type();
 }
-
-/* STAR ANIMATION */
-const canvas=document.getElementById("canvas");
-const ctx=canvas.getContext("2d");
-
-canvas.width=window.innerWidth;
-canvas.height=window.innerHeight;
-
-class Star{
-  constructor(){
-    this.x=Math.random()*canvas.width;
-    this.y=Math.random()*canvas.height;
-    this.size=Math.random()*2;
-    this.speed=Math.random()*1.5;
-  }
-  draw(){
-    ctx.fillStyle="white";
-    ctx.beginPath();
-    ctx.arc(this.x,this.y,this.size,0,Math.PI*2);
-    ctx.fill();
-  }
-  update(){
-    this.y+=this.speed;
-    if(this.y>canvas.height){
-      this.y=0;
-      this.x=Math.random()*canvas.width;
-    }
-    this.draw();
-  }
-}
-
-let stars=[];
-for(let i=0;i<80;i++) stars.push(new Star());
-
-function animate(){
-  ctx.clearRect(0,0,canvas.width,canvas.height);
-  stars.forEach(s=>s.update());
-  requestAnimationFrame(animate);
-}
-animate();
 
 </script>
 
