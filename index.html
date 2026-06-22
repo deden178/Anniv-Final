@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Anniversary 1 Tahun 💙</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+body{
+  margin:0;
+  height:100vh;
+  font-family:'Dancing Script',cursive;
+  background:linear-gradient(135deg,#020617,#1e3a8a,#2563eb);
+  overflow:hidden;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color:white;
+}
+
+canvas{
+  position:fixed;
+  top:0;left:0;
+  width:100%;height:100%;
+  z-index:0;
+}
+
+.card{
+  position:relative;
+  z-index:2;
+  width:90%;
+  max-width:450px;
+  height:600px;
+  background:rgba(255,255,255,0.08);
+  backdrop-filter:blur(12px);
+  border-radius:20px;
+  overflow:hidden;
+  box-shadow:0 10px 30px rgba(0,0,0,0.5);
+}
+
+.slide{
+  position:absolute;
+  width:100%;
+  height:100%;
+  opacity:0;
+  pointer-events:none;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:20px;
+  transition:0.5s ease;
+}
+
+.slide.active{
+  opacity:1;
+  pointer-events:auto;
+}
+
+h1{font-size:26px;}
+
+.pin-box input{
+  width:50px;
+  height:60px;
+  font-size:28px;
+  text-align:center;
+  border-radius:10px;
+  border:2px solid #60a5fa;
+}
+
+.keyboard button{
+  width:60px;
+  height:60px;
+  margin:5px;
+  border:none;
+  border-radius:10px;
+  background:#2563eb;
+  color:white;
+  font-size:20px;
+}
+
+.btn{
+  padding:10px 20px;
+  border:none;
+  border-radius:20px;
+  background:#3b82f6;
+  color:white;
+}
+
+.nav{
+  position:absolute;
+  bottom:10px;
+  width:100%;
+  display:flex;
+  justify-content:space-between;
+  padding:0 10px;
+}
+
+img,video{
+  width:85%;
+  border-radius:15px;
+  margin:10px;
+}
+
+/* SURAT */
+.envelope{
+  width:220px;
+  height:130px;
+  background:#1e3a8a;
+  border-radius:10px;
+  position:relative;
+  cursor:pointer;
+  overflow:hidden;
+}
+
+.flap{
+  position:absolute;
+  top:0;
+  width:100%;
+  height:60px;
+  background:#3b82f6;
+  transform-origin:top;
+  transition:0.6s;
+}
+
+.paper{
+  position:absolute;
+  bottom:0;
+  width:90%;
+  height:0;
+  background:white;
+  color:black;
+  padding:10px;
+  overflow:auto;
+  border-radius:10px;
+  font-size:14px;
+  transition:0.6s;
+}
+
+.envelope.open .flap{
+  transform:rotateX(180deg);
+}
+
+.envelope.open .paper{
+  height:340px;
+}
+</style>
+</head>
+
+<body>
+
+<canvas id="canvas"></canvas>
+
+<div class="card">
+
+<!-- SLIDE 1 -->
+<div class="slide active" id="s1">
+<h1>Masukkan PIN 💙</h1>
+
+<div class="pin-box">
+<input maxlength="1"><input maxlength="1"><input maxlength="1"><input maxlength="1">
+</div>
+
+<div class="keyboard">
+<button onclick="press(1)">1</button>
+<button onclick="press(2)">2</button>
+<button onclick="press(3)">3</button><br>
+<button onclick="press(4)">4</button>
+<button onclick="press(5)">5</button>
+<button onclick="press(6)">6</button><br>
+<button onclick="press(7)">7</button>
+<button onclick="press(8)">8</button>
+<button onclick="press(9)">9</button><br>
+<button onclick="del()">⌫</button>
+<button onclick="press(0)">0</button>
+<button onclick="check()">✔</button>
+</div>
+</div>
+
+<!-- SLIDE 2 -->
+<div class="slide" id="s2">
+<h1>Happy Anniversary 💙</h1>
+<p>365 hari sama kamu</p>
+</div>
+
+<!-- SLIDE 3 -->
+<div class="slide" id="s3">
+<img src="foto1.jpg.jpeg">
+<p>Date Pizza yang Seruuu banget 🥰</p>
+</div>
+
+<!-- SLIDE 4 -->
+<div class="slide" id="s4">
+<img src="foto2.jpg.jpeg">
+<p>waktu ngebantuin kamu dan aku ngerasa ini yang paling ngebuat aku deket sama kamuu 💙</p>
+</div>
+
+<!-- SLIDE 5 -->
+<div class="slide" id="s5">
+<img src="foto3.jpg.jpeg">
+<p>lagiii jadi Koboy 🤠</p>
+</div>
+
+<!-- SLIDE 6 -->
+<div class="slide" id="s6">
+<h1>Video 1 💙</h1>
+<video controls muted src="video1.mp4.mp4"></video>
+<p>manusia tercantik</p>
+</div>
+
+<!-- SLIDE 7 -->
+<div class="slide" id="s7">
+<h1>Video 2 💙</h1>
+<video controls muted src="video2.mp4.mp4"></video>
+<p>I love the moment when i'm with youu 💙</p>
+</div>
+
+<!-- SLIDE 8 -->
+<div class="slide" id="s8">
+<h1>Harapan Kita 💙</h1>
+<p>Semoga kitaa selalu bersama Yaaa💙</p>
+</div>
+
+<!-- SLIDE 9 -->
+<div class="slide" id="s9">
+<h1>Terima Kasih 💙</h1>
+<p>Terima kasih sudah jadi bagian terbaik dalam hidupku</p>
+</div>
+
+<!-- SLIDE 10 -->
+<div class="slide" id="s10">
+<h1>Buka Surat 💌</h1>
+
+<div class="envelope" onclick="openLetter(this)">
+  <div class="flap"></div>
+  <div class="paper" onclick="startTyping(event)">
+    <p id="letterText"></p>
+  </div>
+</div>
+
+</div>
+
+<!-- NAV -->
+<div class="nav">
+<button class="btn" onclick="prev()">⬅</button>
+<button class="btn" onclick="next()">➡</button>
+</div>
+
+</div>
+
+<script>
+
+let current=1;
+
+function show(n){
+  document.querySelectorAll('.slide').forEach(s=>s.classList.remove('active'));
+  document.getElementById('s'+n).classList.add('active');
+  current=n;
+}
+
+function next(){if(current<10) show(current+1);}
+function prev(){if(current>1) show(current-1);}
+
+/* PIN */
+let i=0;
+function press(n){
+  let inputs=document.querySelectorAll('.pin-box input');
+  if(i<inputs.length){
+    inputs[i].value=n;
+    i++;
+  }
+}
+function del(){
+  let inputs=document.querySelectorAll('.pin-box input');
+  if(i>0){
+    i--;
+    inputs[i].value="";
+  }
+}
+function check(){
+  let val=[...document.querySelectorAll('.pin-box input')].map(x=>x.value).join('');
+  if(val==="2306"){
+    show(2);
+    music.play();
+  }else{
+    alert("PIN salah!");
+  }
+}
+
+/* MUSIC */
+let music=new Audio("musik.mp3");
+music.loop=true;
+
+/* SURAT */
+function openLetter(el){
+  el.classList.toggle("open");
+}
+
+/* TYPING EFFECT */
+let fullText=`Sayaanggf, happyyy anniversary yaaa yang pertama ✨💗,
+
+aku senang banget bisa ngelewatin semua nya bareng kamu selama 1 tahun ini, naik turun nya sebuah hubungan itu bener bener aku rasain banget dan bikin aku belajar banyak hal 🤩🤗,
+
+terimakasih banyak ya sayang karena udah selalu disamping aku 💙.
+
+Aku sayang dan cinta kamu ❤️.
+
+Salam hangat dari your BF.
+
+Buat "sesuatu" nya ditunggu ya 🤭`;
+
+let index=0;
+let started=false;
+
+function startTyping(e){
+  e.stopPropagation();
+  if(started) return;
+  started=true;
+
+  let el=document.getElementById("letterText");
+  el.innerHTML="";
+
+  function type(){
+    if(index<fullText.length){
+      el.innerHTML+=fullText.charAt(index);
+      index++;
+      setTimeout(type,25);
+    }
+  }
+  type();
+}
+
+/* STAR ANIMATION */
+const canvas=document.getElementById("canvas");
+const ctx=canvas.getContext("2d");
+
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
+
+class Star{
+  constructor(){
+    this.x=Math.random()*canvas.width;
+    this.y=Math.random()*canvas.height;
+    this.size=Math.random()*2;
+    this.speed=Math.random()*1.5;
+  }
+  draw(){
+    ctx.fillStyle="white";
+    ctx.beginPath();
+    ctx.arc(this.x,this.y,this.size,0,Math.PI*2);
+    ctx.fill();
+  }
+  update(){
+    this.y+=this.speed;
+    if(this.y>canvas.height){
+      this.y=0;
+      this.x=Math.random()*canvas.width;
+    }
+    this.draw();
+  }
+}
+
+let stars=[];
+for(let i=0;i<80;i++) stars.push(new Star());
+
+function animate(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  stars.forEach(s=>s.update());
+  requestAnimationFrame(animate);
+}
+animate();
+
+</script>
+
+</body>
+</html>
